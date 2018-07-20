@@ -1,34 +1,30 @@
 /**
- * Just like the previous example, except now we will use the Serial monitor to 
- * be able to write messages to / from the arduino!
+ * In this example we will drive a servo with the arduino servo library!
  * 
- * Exercises:
- * 1. Switch the led to the onboard led.
- * 2. Switch the pull down resistor to a pull up resistor!
+ * We will modify the code to take servo angles from a serial connection!
  */
 
-const int ButtonPin = 3;
-const int LEDPin = 5;
-const int BaudRate = 9600; // this is the speed at which data is written over the serial cable.
-// The baud rate depends on the device you are writing to, but for writing to the Arduino serial monitor, 9600 is fine.
+#include <Servo.h>
+
+Servo servo;
+const int ServoPin = 3;
+const int BaudRate = 9600;
+const int ServoDelay = 10;
+const int MaxServoAngle = 174;
 
 void setup() {
   Serial.begin(BaudRate);
-  pinMode( ButtonPin, INPUT );
-  pinMode( LEDPin, OUTPUT );
-
+  servo.attach(ServoPin);
+  servo.write(0);
 }
 
 void loop() {
-  if( digitalRead(ButtonPin) == HIGH ){
-    //Different ways to write to serial.
-    //Serial.println("Turning the LED on!");
-    //Serial.print("Turning the LED on!");
-    Serial.print("Turning the LED on!\n");
-    digitalWrite(LEDPin, HIGH);
+  for ( int i = 0; i < MaxServoAngle; ++i ){
+    servo.write(i);
+    delay( ServoDelay );
   }
-  else{
-    digitalWrite(LEDPin, LOW);
+  for( int i = MaxServoAngle - 1; i >= 0; --i ){
+    servo.write(i);
+    delay(ServoDelay);
   }
-
 }
