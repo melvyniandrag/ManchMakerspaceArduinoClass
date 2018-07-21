@@ -1,19 +1,30 @@
 /**
- * TODO: Something with analong inputs, demonstrating how the analong values are continuous 
- * whereas the digital inputs are binary.
+ * Notice the pin mode for the button is different than the other sketches we've
+ * looked at this far. The pin mode in this sketch is 
+ * 
+ * Note: there is no INPUT_PULLDOWN, there is only INPUT, OUTPUT, and INPUT_PULLUP
+ * 
+ * Activity:
+ *  Switch the LED to an off-board led now, with the proper resistor in place.
+ *  
  */
 
-const int ButtonPin = 3;
-const int LEDPin = 5;
-const int BaudRate = 9600; // this is the speed at which data is written over the serial cable.
-// The baud rate depends on the device you are writing to, but for writing to the Arduino serial monitor, 9600 is fine.
+const int ButtonPin = 4;
+const int LEDPin = 13;
+const int BaudRate = 9600;
 
 void setup() {
-//todo
+  pinMode( ButtonPin, INPUT_PULLUP);
+  pinMode( LEDPin, OUTPUT );
 
 }
 
 void loop() {
-//todo
+  if( digitalRead( ButtonPin ) ){
+    digitalWrite( LEDPin, LOW );
+  }
+  else{
+    digitalWrite( LEDPin, HIGH );
+  }
 
 }
