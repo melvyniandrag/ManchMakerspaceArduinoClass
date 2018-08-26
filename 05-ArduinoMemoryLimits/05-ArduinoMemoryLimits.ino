@@ -13,10 +13,7 @@
 const unsigned long ArrSize = 1000;
 
 //For this ArrSize, we can use a char array, but the int array uses too much memory
-const char DefaultValue=0;
 char Arr[ArrSize];
-
-//const int DefaultValue = 0;
 //int Arr[ArrSize];
 
 
@@ -28,16 +25,8 @@ void setup() {
   Serial.print("size of an char: ");
   Serial.print(sizeof(char));
   Serial.print("\n");
-  for( unsigned long i = 0; i < ArrSize; ++i ){
-    Arr[i] = i;
-  }
+  memset( Arr, 0, ArrSize );
 }
 
 void loop() {
-    for( int i = 0; i < ArrSize; ++i ){
-      //int square = Arr[i] * Arr[i];
-      char square = Arr[i] * Arr[i];
-      Arr[i] = square;
-    }
-    delay(1000);
 }

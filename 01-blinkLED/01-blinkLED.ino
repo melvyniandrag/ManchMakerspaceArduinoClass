@@ -6,9 +6,13 @@
  * Notice that some constants are built into the arduino IDE environment. LED_BUILTIN = 13.
  * You can change LED_BUILTIN to 13 on any of the lines that use it and the behavior is the same.
  * We will confirm this later in the serial monitor part of the tutorial.
+ * 
+ * 
+ * Include some code in here to talk about for loops, while loops, if, else, etc. 
  */
 
 // LED_BUILTIN=12; Uncomment this and you will see the code doesn't compile because LED_BUILTIN is defined in a standard header.
+// LED BUILTIN is on pin 13.
 
 const unsigned long delayTime = 1000;
 

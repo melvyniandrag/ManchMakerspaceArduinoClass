@@ -1,5 +1,6 @@
 /**
  * In this tutorial we will use a different output pin to blink an led
+ * V = R/I = ( 5 - 2 ) / 0.015 = 200 -> use 220
  */
 
 const int Pin = 2;

@@ -20,6 +20,7 @@ void setup() {
 
 void loop() {
   if( digitalRead(ButtonPin) == HIGH ){
+  //if(1){
     //Serial.println("Turning the LED on!");
     //Serial.print("Turning the LED on!");
     Serial.print("Turning the LED on!\n");

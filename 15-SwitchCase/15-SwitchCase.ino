@@ -40,15 +40,13 @@ void setup() {
 }
 
 void loop() {
-  // read the sensor:
-  //int sensorReading = 601;
-  //int sensorReading = 1000;
   int sensorReading = analogRead(A0);
   Serial.print(sensorReading);
   Serial.print("\n");
   // map the sensor range to a range of four options:
   int range = map(sensorReading, sensorMin, sensorMax, 0, 3);
-
+   Serial.print( range );
+   Serial.print("\n");
   // do something different depending on the range value:
   switch (range) {
     case 0:    // your hand is on the sensor
@@ -61,10 +59,9 @@ void loop() {
       Serial.println("medium");
       break;
     case 3:    // your hand is nowhere near the sensor
+    default:
       Serial.println("bright");
       break;
-    default:
-       Serial.println("Error!");
   }
   delay(1000);        // delay in between reads for stability
 }
